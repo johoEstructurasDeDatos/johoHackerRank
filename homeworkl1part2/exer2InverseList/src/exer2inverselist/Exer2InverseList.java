@@ -20,13 +20,17 @@ public class Exer2InverseList{
         ArrayList<Integer> receivedList=new ArrayList<Integer>();
         ArrayList<Integer> inverseList=new ArrayList<Integer>();
         String inverse="inverse";
+        
         for(int i=0;i<sizeOfList;i++){
+            if(i==0){
+                for(int i1=0;i1<sizeOfList;i1++){
+                  inverseList.add(i,i);  
+                };
+            };
             int pos=reader.nextInt();
             receivedList.add(i,pos);
-            try{
-                inverseList.add(pos-1,i+1);
-            }catch(Exception e){
-            };
+            inverseList.remove(pos-1);
+            inverseList.add(pos-1,i+1);  
         };
         for(int i=0;i<inverseList.size();i++){
           if(receivedList.get(i)!=inverseList.get(i)){
