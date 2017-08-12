@@ -21,7 +21,7 @@ public static void main(String[] args) {
         }else{
             System.out.println("Weird");
         };
-/**     Un mejor codigo que vale la pena probar 
+/**     Un codigo que vale la pena probar 
         
         Scanner reader=new Scanner(System.in);
         int num1;
