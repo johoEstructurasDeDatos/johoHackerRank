@@ -1,5 +1,6 @@
 package exer4mcd;
 import java.util.Scanner;
+import java.math.BigInteger;
 /**
  *
  * @author ElJoho
@@ -9,6 +10,7 @@ public class Exer4MCD {
     public static void process(){
         Scanner in=new Scanner(System.in);
         int numOfProcess=in.nextInt();
+        System.out.println("Output: ");
         for(int i=0;i<numOfProcess;i++){
             int a=in.nextInt();
             int b=in.nextInt();
@@ -19,12 +21,10 @@ public class Exer4MCD {
     public static void makeNumBinary(int a,int b){
         int aModB=a%b;
         //String binaryNum;
-        int binaryNum;
+        BigInteger binaryNum=BigInteger.valueOf(0);
         if(aModB==0){
             binaryNum=biniToInt(buildBinary(a,a));
-            //binaryNum=buildBinary(a,a);
         }else{
-            //binaryNum=buildBinary(a,b);
             binaryNum=biniToInt(buildBinary(a,b));
         };
         System.out.println(binaryNum);
@@ -46,22 +46,22 @@ public class Exer4MCD {
         };
         return binaryNum;
     };
-    public static int biniToInt(String bini){
-        System.out.println(bini);
+    public static BigInteger biniToInt(String bini){
+        //System.out.println(bini);
         char convertBini[]=bini.toCharArray();
-        int biniInt=0;
-        for(int i=convertBini.length-1,i1=0;i>=0;i--,i1++){
+        BigInteger biniInt=new BigInteger(bini,2);
+        /*for(int i=convertBini.length-1,i1=0;i>=0;i--,i1++){
             int multiplicator=0;
             int pow=(int)Math.pow(2,i1);
             multiplicator=convertBini[i]-48;
-            biniInt=biniInt+(multiplicator*pow);
-            //System.out.println(multiplicator+" * "+pow+" = "+multiplicator*pow);
+            BigInteger add=BigInteger.valueOf(multiplicator*pow);
+            biniInt=biniInt.add(BigInteger.valueOf(multiplicator*pow));
         };
-        
+        */
         return biniInt;  
     };
     public static void main(String[] args){
+        System.out.println("Input: ");
         process();
-       //1System.out.println(biniToInt("100"));
     };  
 };
