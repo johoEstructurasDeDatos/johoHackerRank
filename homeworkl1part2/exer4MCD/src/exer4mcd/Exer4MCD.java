@@ -20,14 +20,13 @@ public class Exer4MCD {
     };
     public static void makeNumBinary(int a,int b){
         int aModB=a%b;
-        //String binaryNum;
         BigInteger binaryNum=BigInteger.valueOf(0);
         if(aModB==0){
             binaryNum=biniToInt(buildBinary(a,a));
         }else{
             binaryNum=biniToInt(buildBinary(a,b));
         };
-        System.out.println(binaryNum);
+        System.out.println("Numero decimal: "+binaryNum);
     };
     public static String buildBinary(int size,int a){
         String binaryNum="";
@@ -47,17 +46,9 @@ public class Exer4MCD {
         return binaryNum;
     };
     public static BigInteger biniToInt(String bini){
-        //System.out.println(bini);
+        System.out.println("Binario generado: "+bini);
         char convertBini[]=bini.toCharArray();
         BigInteger biniInt=new BigInteger(bini,2);
-        /*for(int i=convertBini.length-1,i1=0;i>=0;i--,i1++){
-            int multiplicator=0;
-            int pow=(int)Math.pow(2,i1);
-            multiplicator=convertBini[i]-48;
-            BigInteger add=BigInteger.valueOf(multiplicator*pow);
-            biniInt=biniInt.add(BigInteger.valueOf(multiplicator*pow));
-        };
-        */
         return biniInt;  
     };
     public static void main(String[] args){
@@ -65,3 +56,11 @@ public class Exer4MCD {
         process();
     };  
 };
+/* sample output
+5
+3 1
+3 2
+5 2
+10 4
+100 3
+*/
