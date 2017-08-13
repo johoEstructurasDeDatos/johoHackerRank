@@ -10,7 +10,6 @@ public class Exer4MCD {
     public static void process(){
         Scanner in=new Scanner(System.in);
         int numOfProcess=in.nextInt();
-        //System.out.println("Output: ");
         for(int i=0;i<numOfProcess;i++){
             int a=in.nextInt();
             int b=in.nextInt();
@@ -26,7 +25,6 @@ public class Exer4MCD {
         }else{
             binaryNum=biniToInt(buildBinary(a,b));
         };
-        //System.out.println("Numero decimal: "+binaryNum);
         System.out.println(binaryNum);
     };
     public static String buildBinary(int size,int a){
@@ -47,13 +45,12 @@ public class Exer4MCD {
         return binaryNum;
     };
     public static BigInteger biniToInt(String bini){
-        //System.out.println("Binario generado: "+bini);
-        char convertBini[]=bini.toCharArray();
         BigInteger biniInt=new BigInteger(bini,2);
-        return biniInt;  
+        BigInteger numerator=BigInteger.valueOf(7+(int)Math.pow(10,9));
+        BigInteger result=biniInt.remainder(numerator);
+        return result;  
     };
     public static void main(String[] args){
-        //System.out.println("Input: ");
         process();
     };  
 };

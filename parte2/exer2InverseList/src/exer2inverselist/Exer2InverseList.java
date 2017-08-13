@@ -1,46 +1,65 @@
 package exer2inverselist;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 /**
  *
  * @author ElJoho
  */
 public class Exer2InverseList{
-    
-    public static void processTests(){
-        Scanner reader=new Scanner(System.in);
-        int numOfTests=reader.nextInt();
+    public static void process(){
+        Scanner in=new Scanner(System.in);
+        int numOfTests=in.nextInt();
+        in.next();
+        in.nextLine();
+        in.close();
         for(int i=0;i<numOfTests;i++){
-            testInverseList();
+            System.out.println(readBuildAndCompare());
         };
     };
-    public static void testInverseList(){
-        Scanner reader=new Scanner(System.in);
-        int sizeOfList=reader.nextInt();
-        ArrayList<Integer> receivedList=new ArrayList<Integer>();
-        ArrayList<Integer> inverseList=new ArrayList<Integer>();
-        String inverse="inverse";
-        
-        for(int i=0;i<sizeOfList;i++){
-            if(i==0){
-                for(int i1=0;i1<sizeOfList;i1++){
-                  inverseList.add(i,i);  
-                };
-            };
-            int pos=reader.nextInt();
-            receivedList.add(i,pos);
-            inverseList.remove(pos-1);
-            inverseList.add(pos-1,i+1);  
+    public static String readBuildAndCompare(){
+        Scanner in=new Scanner(System.in);
+        HashMap list=new HashMap();
+        HashMap inverse=new HashMap();
+        int size=in.nextInt();
+        in.next();
+        in.nextLine();
+        for(int i=0;i<size;i++){
+            in.next();
+            in.nextLine();
+            Scanner inn=new Scanner(System.in);
+            int pos=inn.nextInt();
+            list.put(i,pos);
+            inverse.put(pos,i+1);
         };
-        for(int i=0;i<inverseList.size();i++){
-          if(receivedList.get(i)!=inverseList.get(i)){
-              inverse="not inverse";
-              i=inverseList.size();
-          };
+        print(list);print(inverse);
+        return compare(list,inverse,size);
+    };
+    public static String compare(HashMap list,HashMap inverse,int size){
+        String isInverse="inverse";
+        for(int i=0;i<size&&isInverse=="inverse";i++){
+            if(list.get(i)!=inverse.get(i))isInverse="not inverse";
+            else isInverse="inverse";
         };
-        System.out.println(inverse);
+        return isInverse;
+    };
+    public static void print(HashMap hash){
+    Iterator iterator = hash.keySet().iterator();
+    while (iterator.hasNext()) {
+       String key = iterator.next().toString();
+       String value =hash.get(key).toString();
+       System.out.println(key + " " + value);
+    }
     };
     public static void main(String[] args){
-        processTests();
+        process();
     };
 };
+ 
+/*Sample input
+2
+3
+3 1 2
+3
+1 2 3
+*/
