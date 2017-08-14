@@ -42,9 +42,11 @@ public class Exer4MCD {
                 zeroOr=true;
             };
         };
+        System.out.print("binario: "+binaryNum+"\n");
         return binaryNum;
     };
     public static BigInteger biniToInt(String bini){
+        
         BigInteger biniInt=new BigInteger(bini,2);
         BigInteger numerator=BigInteger.valueOf(7+(int)Math.pow(10,9));
         BigInteger result=biniInt.remainder(numerator);
@@ -52,6 +54,7 @@ public class Exer4MCD {
     };
     public static void main(String[] args){
         process();
+        //System.out.println(buildBinary(11,4));
     };  
 };
 /* sample output

@@ -10,11 +10,8 @@ public class Exer2InverseList{
     public static void process(){
         Scanner in=new Scanner(System.in);
         int numOfTests=in.nextInt();
-        in.next();
-        in.nextLine();
-        in.close();
         for(int i=0;i<numOfTests;i++){
-            System.out.println(readBuildAndCompare());
+            System.out.print(readBuildAndCompare());
         };
     };
     public static String readBuildAndCompare(){
@@ -22,17 +19,14 @@ public class Exer2InverseList{
         HashMap list=new HashMap();
         HashMap inverse=new HashMap();
         int size=in.nextInt();
-        in.next();
-        in.nextLine();
+        System.out.print(size);
         for(int i=0;i<size;i++){
-            in.next();
-            in.nextLine();
-            Scanner inn=new Scanner(System.in);
-            int pos=inn.nextInt();
-            list.put(i,pos);
+            int pos=in.nextInt();
+            System.out.print(pos);
+            list.put(i+1,pos);
             inverse.put(pos,i+1);
         };
-        print(list);print(inverse);
+        //print(list);print(inverse);
         return compare(list,inverse,size);
     };
     public static String compare(HashMap list,HashMap inverse,int size){
